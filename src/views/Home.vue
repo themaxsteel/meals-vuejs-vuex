@@ -1,7 +1,7 @@
 <template>
   <div class="p-8 max-w-[1200px] mx-auto">
     <h1 class="font-semibold text-2xl text-center text-orange-600">Random Meals for Today</h1>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 p-8">
+    <div class="grid grid-cols-1 sm:grid-cols-4 gap-8 p-8">
       <MealItem v-for="meal of meals" :meal="meal"/>
     </div>
   </div>
@@ -15,7 +15,7 @@ import axiosClient from "../axiosClient.js";
 import MealItem from "../components/MealItem.vue";
 const meals = ref([]);
 
-onMounted(async () => {
+onMounted(() => {
   for (let i = 0; i < 10; i++) {
     axiosClient
       .get(`random.php`)
